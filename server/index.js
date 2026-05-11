@@ -49,20 +49,20 @@ const scenarios = [
 ];
 
 const stockRates = [
-  // 12월 최종: S전자 -50%, K반도체 -80%, H건설 +160%, B반려견 +170%, D코인 -70%, Y코인 -50%, J펀드 +150%
-  // 코인은 중간에 급등락하다 결국 손실로 마무리
-  { month: 1,  rates: { S_Elec: 1.0,   K_Semi: 1.1,  H_Const: 1.0,  B_Dog: 0.9,  D_Coin: 1.8,  Y_Coin: 1.5,  J_Fund: 0.95 } },
-  { month: 2,  rates: { S_Elec: 0.95,  K_Semi: 1.2,  H_Const: 1.0,  B_Dog: 0.8,  D_Coin: 0.6,  Y_Coin: 2.0,  J_Fund: 0.9  } },
-  { month: 3,  rates: { S_Elec: 0.9,   K_Semi: 1.3,  H_Const: 1.05, B_Dog: 0.85, D_Coin: 2.5,  Y_Coin: 0.7,  J_Fund: 1.0  } },
-  { month: 4,  rates: { S_Elec: 0.85,  K_Semi: 1.1,  H_Const: 0.95, B_Dog: 0.9,  D_Coin: 0.5,  Y_Coin: 1.8,  J_Fund: 1.05 } },
-  { month: 5,  rates: { S_Elec: 0.8,   K_Semi: 0.9,  H_Const: 1.0,  B_Dog: 0.95, D_Coin: 1.5,  Y_Coin: 0.9,  J_Fund: 1.1  } },
-  { month: 6,  rates: { S_Elec: 0.75,  K_Semi: 0.8,  H_Const: 0.95, B_Dog: 1.1,  D_Coin: 0.8,  Y_Coin: 1.2,  J_Fund: 1.15 } },
-  { month: 7,  rates: { S_Elec: 0.7,   K_Semi: 0.7,  H_Const: 1.1,  B_Dog: 1.3,  D_Coin: 1.8,  Y_Coin: 0.8,  J_Fund: 1.2  } },
-  { month: 8,  rates: { S_Elec: 0.8,   K_Semi: 0.6,  H_Const: 1.2,  B_Dog: 1.5,  D_Coin: 0.6,  Y_Coin: 1.5,  J_Fund: 1.25 } },
-  { month: 9,  rates: { S_Elec: 0.9,   K_Semi: 0.5,  H_Const: 1.4,  B_Dog: 1.4,  D_Coin: 0.4,  Y_Coin: 0.9,  J_Fund: 1.3  } },
-  { month: 10, rates: { S_Elec: 0.7,   K_Semi: 0.4,  H_Const: 1.5,  B_Dog: 1.8,  D_Coin: 0.5,  Y_Coin: 0.7,  J_Fund: 1.35 } },
-  { month: 11, rates: { S_Elec: 0.6,   K_Semi: 0.3,  H_Const: 1.8,  B_Dog: 2.0,  D_Coin: 0.35, Y_Coin: 0.6,  J_Fund: 1.4  } },
-  { month: 12, rates: { S_Elec: 0.5,   K_Semi: 0.2,  H_Const: 2.6,  B_Dog: 2.7,  D_Coin: 0.30, Y_Coin: 0.50, J_Fund: 2.5  } },
+  // 12월 최종: S전자 -20%, K반도체 -40%, H건설 +30%, B반려견 +50%, D코인 -70%, Y코인 -60%, J펀드 +20%
+  // 현실적 수익률 (코인은 큰 손실 유지)
+  { month: 1,  rates: { S_Elec: 1.02,  K_Semi: 1.05,  H_Const: 1.01,  B_Dog: 0.95,  D_Coin: 1.40,  Y_Coin: 1.30,  J_Fund: 1.01 } },
+  { month: 2,  rates: { S_Elec: 0.98,  K_Semi: 1.08,  H_Const: 1.03,  B_Dog: 0.90,  D_Coin: 0.80,  Y_Coin: 1.50,  J_Fund: 1.02 } },
+  { month: 3,  rates: { S_Elec: 0.95,  K_Semi: 1.10,  H_Const: 1.05,  B_Dog: 0.95,  D_Coin: 1.60,  Y_Coin: 0.70,  J_Fund: 1.04 } },
+  { month: 4,  rates: { S_Elec: 0.92,  K_Semi: 1.00,  H_Const: 1.02,  B_Dog: 1.00,  D_Coin: 0.60,  Y_Coin: 1.20,  J_Fund: 1.05 } },
+  { month: 5,  rates: { S_Elec: 0.90,  K_Semi: 0.90,  H_Const: 1.08,  B_Dog: 1.10,  D_Coin: 1.30,  Y_Coin: 0.80,  J_Fund: 1.07 } },
+  { month: 6,  rates: { S_Elec: 0.88,  K_Semi: 0.85,  H_Const: 1.10,  B_Dog: 1.15,  D_Coin: 0.70,  Y_Coin: 1.10,  J_Fund: 1.09 } },
+  { month: 7,  rates: { S_Elec: 0.85,  K_Semi: 0.78,  H_Const: 1.15,  B_Dog: 1.25,  D_Coin: 1.50,  Y_Coin: 0.60,  J_Fund: 1.11 } },
+  { month: 8,  rates: { S_Elec: 0.88,  K_Semi: 0.72,  H_Const: 1.18,  B_Dog: 1.30,  D_Coin: 0.50,  Y_Coin: 0.90,  J_Fund: 1.13 } },
+  { month: 9,  rates: { S_Elec: 0.90,  K_Semi: 0.68,  H_Const: 1.22,  B_Dog: 1.35,  D_Coin: 0.40,  Y_Coin: 0.70,  J_Fund: 1.15 } },
+  { month: 10, rates: { S_Elec: 0.85,  K_Semi: 0.65,  H_Const: 1.25,  B_Dog: 1.40,  D_Coin: 0.50,  Y_Coin: 0.55,  J_Fund: 1.17 } },
+  { month: 11, rates: { S_Elec: 0.82,  K_Semi: 0.62,  H_Const: 1.28,  B_Dog: 1.45,  D_Coin: 0.35,  Y_Coin: 0.45,  J_Fund: 1.19 } },
+  { month: 12, rates: { S_Elec: 0.80,  K_Semi: 0.60,  H_Const: 1.30,  B_Dog: 1.50,  D_Coin: 0.30,  Y_Coin: 0.40,  J_Fund: 1.20 } },
 ];
 
 const rooms = {};
@@ -229,8 +229,23 @@ io.on('connection', (socket) => {
         });
       }
 
+      // 로또 시나리오에 진입하면 당첨번호를 서버에서 한 번만 생성
+      if (currentScenario && currentScenario.type === 'lottery') {
+        const winningNumbers = [];
+        while (winningNumbers.length < 4) {
+          const r = Math.floor(Math.random() * 45) + 1;
+          if (!winningNumbers.includes(r)) winningNumbers.push(r);
+        }
+        room.lotteryWinningNumbers = winningNumbers;
+      }
+
       if (room.step <= scenarios.length) {
-        io.to(roomId).emit('gameStateUpdated', { phase: 'scenario', scenario: currentScenario, step: room.step });
+        const scenarioToSend = { ...currentScenario };
+        // 로또 시나리오면 당첨번호도 함께 전송
+        if (currentScenario && currentScenario.type === 'lottery' && room.lotteryWinningNumbers) {
+          scenarioToSend.winningNumbers = room.lotteryWinningNumbers;
+        }
+        io.to(roomId).emit('gameStateUpdated', { phase: 'scenario', scenario: scenarioToSend, step: room.step });
       } else if (room.step === scenarios.length + 1) {
         // 주식 장 시작 (1월)
         room.currentMonth = 1;

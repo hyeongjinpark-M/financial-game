@@ -109,15 +109,9 @@ function Player() {
   };
 
   const playLottery = () => {
-    // 추첨 (1~45 중 4개)
-    const winningNumbers = [];
-    while(winningNumbers.length < 4) {
-      const r = Math.floor(Math.random() * 45) + 1;
-      if (!winningNumbers.includes(r)) winningNumbers.push(r);
-    }
+    // 서버에서 생성한 당첨번호 사용 (모든 참가자 동일)
+    const winningNumbers = gameState.scenario?.winningNumbers || [];
     
-    // 사용자가 고른 4개의 번호 (중복 허용 여부 상관없이 각각 비교하거나 셋업)
-    // 기획상 그룹 1~4에서 각각 뽑는 것이므로 배열 그대로 사용
     let matchCount = 0;
     const winCopy = [...winningNumbers];
     lotterySelections.forEach(num => {
