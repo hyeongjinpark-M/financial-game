@@ -258,12 +258,44 @@ function Player() {
               )}
             </div>
           ) : gameState.scenario.type === 'car_trap' ? (
-            <div className="text-red-400 font-bold">
-              함정 발동! 자동차 구매자에게 100만원이 청구됩니다.
+            <div className="font-bold p-4 text-center" style={{ background: '#1f2937', borderRadius: '8px' }}>
+              {playerInfo.items.includes('자동차 할인') ? (
+                <div>
+                  <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🚗💸</div>
+                  <span style={{ color: '#ef4444', fontSize: '1.2rem' }}>
+                    자동차 유지비 함정 발동!
+                  </span>
+                  <div className="mt-2" style={{ color: '#fbbf24' }}>
+                    취득세, 주유, 보험료 등으로<br/>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>-1,000,000원</span>이 청구되었습니다!
+                  </div>
+                </div>
+              ) : (
+                <span style={{ color: '#10b981', fontSize: '1.2rem' }}>
+                  🎉 자동차를 구매하지 않아 유지비 함정을 피했습니다!
+                </span>
+              )}
             </div>
           ) : gameState.scenario.type === 'accident' ? (
-            <div className="text-red-400 font-bold">
-              교통사고 발생! (보험가입자: 지출 0원, 미가입자: 400만원 청구)
+            <div className="font-bold p-4 text-center" style={{ background: '#1f2937', borderRadius: '8px' }}>
+              {playerInfo.insurance ? (
+                <div>
+                  <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🛡️✨</div>
+                  <span style={{ color: '#10b981', fontSize: '1.2rem' }}>
+                    보험 덕분에 병원비 0원! 가입하길 잘했네요!
+                  </span>
+                </div>
+              ) : (
+                <div>
+                  <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🚑💔</div>
+                  <span style={{ color: '#ef4444', fontSize: '1.2rem' }}>
+                    교통사고 발생! 보험 미가입으로
+                  </span>
+                  <div className="mt-2" style={{ color: '#fbbf24' }}>
+                    병원비 <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>-4,000,000원</span> 청구!
+                  </div>
+                </div>
+              )}
             </div>
           ) : gameState.scenario.type === 'pension_result' ? (
             <div className="font-bold p-4 text-center" style={{ background: '#1f2937', borderRadius: '8px' }}>
